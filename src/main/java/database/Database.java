@@ -14,7 +14,6 @@ public class Database {
     }
 
     private final Properties props = new Properties();
-
     public static final String URL = "jdbc:postgresql://localhost:5432/cities";
     public static final String USER = "postgres";
     public static final String PASSWORD = "admin";

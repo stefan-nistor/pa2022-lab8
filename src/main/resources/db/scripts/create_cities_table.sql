@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS public.cities
     capital   boolean,
     latitude  numeric,
     longitude numeric,
-
+    UNIQUE (country),
     PRIMARY KEY (id)
 
 )

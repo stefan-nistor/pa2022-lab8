@@ -6,6 +6,7 @@ import entities.Continent;
 import java.sql.*;
 import java.util.Optional;
 
+import static database.Database.closeConnection;
 import static database.Database.getConnection;
 
 public class ContinentDAO {
@@ -18,6 +19,7 @@ public class ContinentDAO {
             pstms.setString(1, name);
             pstms.executeUpdate();
         }
+        closeConnection();
     }
 
     public Optional<Continent> findByName(String name) throws SQLException {
@@ -34,7 +36,8 @@ public class ContinentDAO {
                 continent.setName(rs.getString("name"));
             }
         }
-        return Optional.ofNullable(continent);
+        closeConnection();
+        return Optional.of(continent);
     }
 
     public Optional<Continent> findById(Long id) throws SQLException {
@@ -50,7 +53,8 @@ public class ContinentDAO {
                 continent.setName(rs.getString("name"));
             }
         }
-        return Optional.ofNullable(continent);
+        closeConnection();
+        return Optional.of(continent);
     }
 
 }
